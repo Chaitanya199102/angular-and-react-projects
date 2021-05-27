@@ -1,0 +1,15 @@
+@import './../sass/app-variables.scss';
+.custom-container{background-color: #EAEDED;padding:0;}
+.cutom-side-navbar{background-color: #FFFFFF;margin-right: 1%;padding:0;}
+.items-container{background-color: #FFFFFF; padding:0}
+.custom-row{padding:1%;margin: 0;}
+
+.container{
+    ul{list-style-type: none;}
+}
+.scrollable-div{overflow: auto;max-height: 100vh;}
+
+::-webkit-scrollbar {
+    width: 0px; /* remove scrollbar space */
+    background: transparent; /* optional: just make scrollbar invisible */
+}

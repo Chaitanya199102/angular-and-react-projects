@@ -1,0 +1,25 @@
+<div class="col-sm-12">
+  <div class="modal-dialog" style="margin-bottom:0">
+    <div class="modal-content card">
+      <div class="card-header">
+        <span class="card-title">
+          <img alt="Angular Logo" class="acs_logo" src="../assets/images/acs_logo.png">&nbsp;
+          <span class='signin_label'>Access Control System</span> Sign In
+        </span>
+      </div>
+      <div class="card-body">
+        <form role="form">
+          <fieldset>
+            <div class="form-group">
+              <input class="form-control" placeholder="E-mail" name="email" type="email" autofocus="">
+            </div>
+            <div class="form-group">
+              <input class="form-control" placeholder="Password" name="password" type="password" value="">
+            </div>
+            <button type="button" (click)="authenticate()" class="btn btn-secondary">Login</button>
+          </fieldset>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

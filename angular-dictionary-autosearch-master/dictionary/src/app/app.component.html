@@ -1,0 +1,24 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h3>
+    Welcome to {{ title }}!
+  </h3>
+</div>
+<h2>Here are some links to help you start: </h2>
+<div>
+  <h1>Dictionary</h1>
+  <div style='background-color:#FDEDEC;border:1px solid #F1948A;margin:0 0 0 5%;width:20%;display: inline-block;'>
+    <div style="padding:2%;">
+      <input type="search" [(ngModel)]='searchString' placeholder="Search.." id="search" style="height: 2.4em;padding:4px;"/>
+    </div>
+    <div style="height: 10em;overflow-y: scroll;padding-left: 2%;">
+      <div class="rowElement" *ngFor="let entry of map.entries | searchFilter: searchString">
+        <div class="rowItem rowKey"><b>{{entry.key}}</b></div>
+        <div class="rowItem rowVal" *ngFor='let item of entry.value'><span class='item_span' draggable="true" (dragstart)='dragStart($event,item)' (click)='addtoDiv(item)'>{{item}}</span></div>
+      </div>
+    </div>
+  </div>
+  <div (drop)="drop($event,param)" (dragover)="allowDrop($event)" style="display: inline-block;width:40%;border:1px solid #B2BABB;height:10em;padding:1%"> This is the test </div>
+
+</div>
+

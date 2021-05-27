@@ -1,0 +1,9 @@
+ .rowItem{
+    background-color: #F4F6F6;
+    padding: 1%;
+    border-top: 0.05em dotted grey;
+}
+
+.rowKey{color: #f33;}
+.rowVal{padding-left: 3% !important;}
+.item_span:hover{text-decoration: underline;cursor: pointer;}

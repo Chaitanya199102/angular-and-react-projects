@@ -1,0 +1,29 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-6 col-md-6 col-lg-6 custom-col-form">
+      <div class="form-group" *ngFor="let element of view" [ngSwitch]="element.inputType">
+        <label><span>{{element.attributeLabel}}</span></label>
+        <span *ngSwitchCase="'text'">
+          <input type="text" class="form-control" />
+        </span>
+        <span *ngSwitchCase="'date'">
+          <input type="date" class="form-control" />
+        </span>
+        <span *ngSwitchCase="'select'">
+          <select class="form-control" class="form-control">
+            <option>Select</option>
+          </select>
+        </span>
+      </div>
+      <button type="button" class="btn btn-success">Add</button> &nbsp;
+      <button type="button" class="btn btn-primary">Cancel</button>
+    </div>
+    <div class="col-sm-4 col-md-4 col-lg-4 uploader-col">
+      <input type='file' (change)="readUrl($event)">
+      <div class='uploader'>
+        <p *ngIf="url==null; else elseBlock">Please choose image to upload</p>
+        <ng-template #elseBlock><img [src]="url"></ng-template>
+      </div>
+    </div>
+  </div> 
+</div>

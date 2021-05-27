@@ -1,0 +1,13 @@
+<div class="container-fluid custom-container" *ngIf="managableEntities !== undefined">
+  <div class="main-menu">
+    <div class="menu-heading">
+      <input class="filter" type="text" placeholder="Filter"/>
+    </div>
+  </div>
+  <div class="main-menu" *ngFor="let entity of managableEntities._embedded.entities">
+    <div class="menu-heading">
+      <!--<fa-icon [icon]="['fas', 'book']"></fa-icon>-->
+      <span><a (click)=navigateTo(entity.entityId) >{{entity.name}}</a></span>
+    </div>
+  </div>
+</div>

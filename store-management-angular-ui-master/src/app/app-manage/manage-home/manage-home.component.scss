@@ -1,0 +1,12 @@
+@import './../../sass/app-variables.scss';
+.container-slider-main{background-color: #FFFFFF;margin-bottom: 0;text-align: center;}
+.container-slider-alt1{background: #343a40;color: #FFFFFF;margin-bottom: 0;}
+.container-slider-alt2{background: #D35400;color: #FFFFFF;margin-bottom: 0;}
+
+.sub-title{
+    span{color:$logo-color2;}
+}
+
+.app-search{margin-left:0.5em;border-top:none;border-left:none;border-right:none;width:10%;
+    :focus{border:none;}
+}

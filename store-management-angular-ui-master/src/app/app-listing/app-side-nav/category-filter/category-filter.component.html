@@ -1,0 +1,9 @@
+<div class="category-container">
+  <p class="filter-heading">{{categoryItems.name}}</p>
+  <ul class="category-container-ul">
+    <li *ngFor="let item of categoryItems.elements; let i = index">
+      {{item.name}}
+    </li>
+    <li class="more-collapser">more ...</li>
+  </ul>
+</div>

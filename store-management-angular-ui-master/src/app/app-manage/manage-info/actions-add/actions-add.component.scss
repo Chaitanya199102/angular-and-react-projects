@@ -1,0 +1,38 @@
+.custom-col-form{padding: 1em 1.5em 1em 1.5em;margin: 1.5em 0 1em 1em;background-color: #F2F3F4;}
+
+.uploader-col{margin: 1.5em 0 1em 1em;}
+.uploader img{width:inherit !important;height: inherit !important;}
+.uploader {
+    margin: 1.5em 0 0 0;
+    position:relative; 
+    overflow:hidden; 
+    width: 18em; 
+    height: 25em;
+    background:#F2F3F4; 
+    border:0.1em dashed #AEB6BF;
+    border-radius: 0.5em;
+    p {
+        padding: 1em;
+    }
+}
+
+#filePhoto{
+    position:absolute;
+    width:300px;
+    height:400px;
+    top:-50px;
+    left:0;
+    z-index:2;
+    opacity:0;
+    cursor:pointer;
+}
+
+.uploader img{
+    position:absolute;
+    width:302px;
+    height:352px;
+    top:-1px;
+    left:-1px;
+    z-index:1;
+    border:none;
+}
