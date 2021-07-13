@@ -1,0 +1,43 @@
+<div style="background-color: #EAEDED; padding: 0.1em 1em 1em 1em; border-radius: 0.5em; margin-bottom: 1em;" >
+    <h2>Dynamic Reactive Form</h2>
+    <span>Supports the following:</span>
+    <ul >
+        <li><b>Cross Validation</b> as Angular Validation (One Field Depends on Another).</li>
+        <li><b>Nofifying Dependent</b> Field about the change using Angular Validator.</li>
+    </ul>
+</div>
+<div>
+    <form [formGroup]="form" 
+        style="padding: 0.5em 1em; border-radius: 0.5em;">
+        <fieldset *ngFor="let section of form.groups" 
+            [formGroup]="form.controls[section.name]"
+            style="border: 0.1em dashed #95A5A6; margin-bottom: 1em;">
+
+            <legend style="font-size: 1.1rem; color: #0C198C;">{{section.title}}</legend>
+            <div class="form-group" *ngFor="let question of section.questions"
+                style="padding: 0.25em;">
+                <p for="name" 
+                    style="margin: 0 !important; color: #707B7C; margin-bottom: 0.25em !important;">
+                    {{question.title}}</p>
+                <input [type]="question.type" 
+                    class="form-control" 
+                    [id]="question.id" 
+                    [formControl]="form.controls[section.name].controls[question.name]"
+                    style="border: 1px solid #AEB6BF; width: 98%; height: 2em;border-radius: 0.25em;">
+                <br>
+                <ng-container *ngIf="form.get(section.name).get(question.name).errors">
+                    <span style="color: #EC7063;margin-top: 0.5em; display: block;"
+                        *ngFor="let error of form.get(section.name).get(question.name).errors | keyvalue">
+                        {{error | errorPipe}}
+                    </span>
+                    
+                </ng-container>
+            </div>
+        </fieldset>
+        <button (click)="onSubmit()" 
+            style="background-color: #0C198C; width: 100%; text-align: center; font-weight: 500;
+            font-size: 1rem; color: #ffffff; border: none; border-radius: 0.25em;padding: 0.7em 1em;">
+            Submit
+        </button>        
+    </form>
+</div>
