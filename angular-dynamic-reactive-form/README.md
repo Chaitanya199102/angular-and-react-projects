@@ -1,4 +1,8 @@
-# Dnd
+# Dynamic Reacive Forms Validation Approach
+Not a Framework or Lib.<br />
+A programatic approach towards implementing Cross Field Validations (one2one, one2Many and Many2One) using Reactive From validations.<br /><br />
+The following screenshot describes how cross field validation between age and salary fields are working using Dynamic Reactive Forms Validaition.<br/><br/>
+![image](https://user-images.githubusercontent.com/12813677/125416299-d1bbf4c6-cf7e-4900-9ade-36b712bff444.png)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.13.
 
