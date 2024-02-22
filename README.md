@@ -10,7 +10,9 @@ One-way and Two-way Data Binding {{data}} or Property Binding [property] = "data
 Event Binding (click) = "onclickHandler"
 Two way Databinding [(ngModel)] = "dataAttribute"
 
-For Two-Way-Binding (covered in the next lecture) to work, you need to enable the ngModel  directive. This is done by adding the FormsModule  to the imports[]  array in the AppModule. You then also need to add the import from @angular/forms  in the app.module.ts file:
+For Two-Way-Binding (covered in the next lecture) to work, you need to enable the ngModel  directive. 
+This is done by adding the FormsModule  to the imports[]  array in the AppModule.
+You then also need to add the import from @angular/forms  in the app.module.ts file:
 import { FormsModule } from '@angular/forms'; 
 
 Directives
@@ -23,22 +25,42 @@ Structural Directives - Affects the DOM or surrounding DOM.  The * Indicates Str
 //… If else example
 <ng-template #goTo> … </ng-template>
 
+Exmaple:
+<div *ngIf="currentStep === 'step1'; else step2">
+  Step 1 Content
+  <button (click)="currentStep = 'step2'">Next</button>
+</div>
+
+<ng-template #step2>
+  <div *ngIf="currentStep === 'step2'; else step3">
+    Step 2 Content
+    <button (click)="currentStep = 'step1'">Previous</button>
+    <button (click)="currentStep = 'step3'">Next</button>
+  </div>
+</ng-template>
+
+<ng-template #step3>
+  <div *ngIf="currentStep === 'step3'; else step1">
+    Step 3 Content
+    <button (click)="currentStep = 'step2'">Previous</button>
+  </div>
+</ng-template>
+
 <ng-template [ng-If] ="!booleanIdicator"></ng-template> //this is behind the scenes
 Other Directives ngStyle, ngClass etc.
 
-Creatin custom directive - basic-highlight-directive.ts (Attribute Directive)
+Cretain custom directive - basic-highlight-directive.ts (Attribute Directive)
 @Directive({
   selector: '[appbasicHighlight]'
 })
-export class BasicHighlight implements OnInit { //Add directive name under @NgModule --> declarations [.., BasicHighlight ]
+export class BasicHighlight implements OnInit { //Add directive name under @NgModule --> declarations 
 	
 	constructor(private elementRef: ElementRef) {}
 	ngOnInit() {
 		this.elementRef.style.backgroundColor = '#F2F2F2';
 	}
 	
-	//..or use renderer which is better practice of accessing DOM, more in here https://angular.io/api/core/Renderer2
-	
+	//..or use renderer which is better practice of accessing DOM, more in here https://angular.io/api/core/Renderer
 	constructor(private elementRef: ElementRef, private renderer: Renderer2) {}
 	ngOnInit() {
 		this.renderer.setStyle(this.elementRef.nativeElement, 'background-color', '#F2F2F2')
@@ -48,7 +70,6 @@ export class BasicHighlight implements OnInit { //Add directive name under @NgMo
 	}
 	
 	//..binding to any property of Host Component
-	
 	@HostBinding('style.backgroundColor') backgroundColor: string = transparent; // binding the properties of the host
 	@HostListner('mouseenter') targetMosueHover(event: Event) { //Reacting to events inside Directives
 		this.backgroundColor = '#F2F2F2';
@@ -74,9 +95,9 @@ In app-child component
 View Encapsulation
 Reference https://angular.io/guide/view-encapsulation. Default Emulated strategy of Angular separates all the component views by adding ng attribute (example _ng_content_c40)
 xyz-compoenent.html
-<h3 _ng_conent_c40>//….This won't be Red
+<h3 _ng_conent_c40> --This won't be Red
 abc-component.html
-<h3 _ng_conent_c40>//….This will become Red
+<h3 _ng_conent_c40> --This will become Red
 abc-component.css
 h3 { color: red}          //…CSS is scoped to respective view
 
